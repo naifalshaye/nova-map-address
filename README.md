@@ -33,7 +33,7 @@ Add the below to nova/resources/views/layout.blade.php
 
 ```php
 
-<script src="https://maps.googleapis.com/maps/api/js?key={{env('ADDRESS_AUTOCOMPLETE_API_KEY')}}&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{env('ADDRESS_AUTOCOMPLETE_API_KEY')}}"></script>
              
 ```
 
