@@ -17,13 +17,11 @@ Add the below to Nova/User.php resource:
 MapAddress::make('address'),
 
 //You can set the initial map location. By default (United States)
-
  MapAddress::make('address')
     ->initLocation(38.4350,122.6894),
-```
+
 
 //You can also set the map zoom level. By default (4)
-
  MapAddress::make('address')
     ->initLocation(38.4350,122.6894)
     ->zoom(12),
