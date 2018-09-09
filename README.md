@@ -52,6 +52,11 @@ ADDRESS_AUTOCOMPLETE_API_KEY=############################
 
 ![Package screenshot](https://pbs.twimg.com/media/DlyEL0AW0AU0UQL.jpg)
 
+## Support:
+naif@naif.io
+
+https://www.linkedin.com/in/naif
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
