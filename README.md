@@ -18,12 +18,11 @@ MapAddress::make('address'),
 
 //You can set the initial map location. By default (United States)
  MapAddress::make('address')
-    ->initLocation(38.4350,122.6894),
-
+    ->initLocation(40.730610,-98.935242),
 
 //You can also set the map zoom level. By default (4)
  MapAddress::make('address')
-    ->initLocation(38.4350,122.6894)
+    ->initLocation(40.730610,-98.935242)
     ->zoom(12),
     
 ```
