@@ -37,16 +37,35 @@
             }
         },
         mounted: function () {
-
+            var map;
             const element = document.getElementById(this.mapName);
+            var lat = 40.730610;
+            var lng = -98.935242;
+
+            if (this.field.lat && this.field.lng){
+                lat = this.field.lat;
+                lng = this.field.lng;
+            }
+            if (this.value){
+               var latlng =  this.value.split("|");
+               latlng = latlng[1].split(",");
+                lat = latlng[0];
+                lng = latlng[1];
+                if (previousMarker) {
+                    previousMarker.setMap(null);
+                }
+            }
             const options = {
                 zoom: this.field.zoom || 4,
-                center: new google.maps.LatLng(this.field.lat || 40.730610 , this.field.lng || -98.935242)
-            }
-            const map = new google.maps.Map(element, options);
+                center: new google.maps.LatLng(lat, lng)
+            };
+            map = new google.maps.Map(element, options);
             var previousMarker;
             var address = this;
-
+            previousMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(lat, lng),
+                map: map
+            });
             google.maps.event.addListener(map, 'click', function(event) {
                 if (previousMarker) {
                     previousMarker.setMap(null);
@@ -59,14 +78,13 @@
                 geocoder.geocode({'location': event.latLng}, function(results, status) {
                     if (status === 'OK') {
                         if (results[0]) {
-                            address.value = results[0].formatted_address;
+                            address.value = results[0].formatted_address+'|'+event.latLng.lat().toFixed(6)+','+event.latLng.lng().toFixed(6);
                         } else {
                             window.alert('No results found');
                         }
                     } else {
                         window.alert('Geocoder failed due to: ' + status);
                         error = false;
-
                     }
                 });
             });
