@@ -9,6 +9,22 @@ You can install the package in to a Laravel app that uses Nova via composer:
 composer require naif/map_address
 ```
 
+## Configuration
+Publish the package config file:
+```bash
+php artisan vendor:publish --provider="Naif\MapAddress\FieldServiceProvider"
+```
+
+This is the contents of the file which will be published at [config/map-address.php](config/map-address.php).
+
+Add the following keys to your `.env` and `.env.example`:
+
+```
+ADDRESS_AUTOCOMPLETE_API_KEY=
+```
+
+_If you need a Google Maps API key, you can create an app and enable Places API and create credentials to get your API key https://console.developers.google.com._
+
 ## Usage:
 Add the below to Nova/User.php resource:
 
@@ -24,26 +40,6 @@ MapAddress::make('address'),
  MapAddress::make('address')
     ->initLocation(40.730610,-98.935242)
     ->zoom(12),
-    
-```
-
-Add the below to nova/resources/views/layout.blade.php
-* To display map and get address in specific language add (&language=en) to the below
-
-```php
-
-<script src="https://maps.googleapis.com/maps/api/js?key={{env('ADDRESS_AUTOCOMPLETE_API_KEY')}}"></script>
-             
-```
-
-Add the below to your .env file
-
-Create an app and enable Places API and create credentials to get your API key
-https://console.developers.google.com
-
-```php
-
-ADDRESS_AUTOCOMPLETE_API_KEY=############################
 
 ```
 
