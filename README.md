@@ -20,7 +20,10 @@ This is the contents of the file which will be published at [config/map-address.
 Add the following keys to your `.env` and `.env.example`:
 
 ```
-ADDRESS_AUTOCOMPLETE_API_KEY=
+MAP_ADDRESS_API_KEY=
+
+Optional: Set map and address language
+MAP_ADDRESS_LANGUAGE=ar
 ```
 
 _If you need a Google Maps API key, you can create an app and enable Places API and create credentials to get your API key https://console.developers.google.com._
