@@ -28,12 +28,11 @@
     import { FormField, HandlesValidationErrors } from 'laravel-nova'
 
     export default {
-        name: 'google-map',
         mixins: [FormField, HandlesValidationErrors],
         props: ['resourceName', 'resourceId', 'field'],
         data: function () {
             return {
-                mapName: this.name + "-map",
+                mapName: "google-map-" + new Date().getTime(),
             }
         },
         mounted: function () {
